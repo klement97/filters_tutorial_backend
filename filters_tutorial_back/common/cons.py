@@ -1,0 +1,18 @@
+# Responses
+DATA = 'data'
+ERRORS = 'errors'
+VALID = 'valid'
+MESSAGE = 'message'
+FILTER_PREFIX = 'flt_'
+ERROR_TYPE = 'type'
+
+VALIDATION_ERROR = 'ValidationError'
+HTTP_404 = 'Http404'
+HTTP_400 = 'Http400'
+INTEGRITY_ERROR = 'IntegrityError'
+OTHER = 'Other'
+FIELD_ERROR = 'FieldError'
+INVALID_DATA = 'InvalidData'
+UNAUTHORIZED = 'Unauthorized'
+EMAIL_ERROR = 'EmailError'
+DOCUMENT_SHEET_CONTENT_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
