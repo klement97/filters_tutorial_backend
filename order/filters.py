@@ -10,10 +10,11 @@ class OrderFilter(filters.FilterSet):
     date_created = filters.DateTimeFromToRangeFilter()
     user__first_name = filters.CharFilter(lookup_expr='icontains')
     user__last_name = filters.CharFilter(lookup_expr='icontains')
+    username = filters.CharFilter(field_name='user__username', method='get_username')
 
     class Meta:
         model = Order
-        fields = ['id', 'deleted']
+        fields = ['id', 'deleted', 'username']
 
     @property
     def qs(self):
@@ -29,3 +30,15 @@ class OrderFilter(filters.FilterSet):
 
         parent = super(OrderFilter, self).qs
         return parent
+
+    def get_username(self, queryset, name, value):
+        """
+        We can make a more complex filter here.
+        @param self            OrderFilter instance
+        @param queryset        Initial Queryset
+        @param name            Field name
+        @param value           Filtered value
+        """
+        return queryset.filter(**{
+            name: value
+            })
