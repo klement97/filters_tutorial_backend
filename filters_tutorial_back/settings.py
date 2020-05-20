@@ -64,7 +64,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
     'PAGE_SIZE': 10,
-    # 'DEFAULT_PAGINATION_CLASS': 'filters_tutorial_back.common.pagination.Pagination',
+    'DEFAULT_PAGINATION_CLASS': 'filters_tutorial_back.common.pagination.Pagination',
 }
 
 ROOT_URLCONF = 'filters_tutorial_back.urls'
