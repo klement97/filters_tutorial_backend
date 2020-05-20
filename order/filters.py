@@ -24,8 +24,8 @@ class OrderFilter(filters.FilterSet):
         # It is not guaranteed that a request will be provided to the FilterSet instance.
         # Any code depending on a request should handle the None case.
         request = self.request
-        if request is not None:
-            pass
+        if request is None:
+            return Order.objects.none()
 
         parent = super(OrderFilter, self).qs
         return parent
