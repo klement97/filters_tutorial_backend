@@ -1,0 +1,137 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /orders/:
+    get:
+      operationId: listOrders
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: id
+        required: false
+        in: query
+        description: id
+        schema:
+          type: string
+      - name: customer
+        required: false
+        in: query
+        description: customer
+        schema:
+          type: string
+      - name: amount
+        required: false
+        in: query
+        description: amount
+        schema:
+          type: string
+      - name: price
+        required: false
+        in: query
+        description: price
+        schema:
+          type: string
+      - name: deleted
+        required: false
+        in: query
+        description: deleted
+        schema:
+          type: string
+      - name: date_created
+        required: false
+        in: query
+        description: date_created
+        schema:
+          type: string
+      - name: user__first_name
+        required: false
+        in: query
+        description: user__first_name
+        schema:
+          type: string
+      - name: user__last_name
+        required: false
+        in: query
+        description: user__last_name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                  previous:
+                    type: string
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      properties:
+                        id:
+                          type: integer
+                          readOnly: true
+                        customer:
+                          type: string
+                          maxLength: 255
+                        amount:
+                          type: integer
+                        price:
+                          type: number
+                          multipleOf: 0.01
+                          maximum: 100000000
+                          minimum: -100000000
+                        notes:
+                          type: string
+                        deleted:
+                          type: boolean
+                        date_created:
+                          type: string
+                          format: date-time
+                          readOnly: true
+                        date_last_updated:
+                          type: string
+                          format: date-time
+                          readOnly: true
+                        user:
+                          properties:
+                            first_name:
+                              type: string
+                              maxLength: 30
+                            last_name:
+                              type: string
+                              maxLength: 150
+                          type: object
+                      required:
+                      - customer
+                      - amount
+                      - price
+                      - notes
+                      - user
+          description: ''
