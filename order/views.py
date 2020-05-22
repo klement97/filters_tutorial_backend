@@ -8,4 +8,7 @@ class OrderListCreateAPIView(CustomListAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     filterset_class = OrderFilter
-    ordering_fields = ['id', 'customer', 'amount', 'price', 'date_created', 'user__first_name', 'user__last_name']
+    ordering_fields = ['id', 'customer', 'amount', 'price', 'date_created', 'user__first_name', 'user__last_name', 'deleted']
+
+    def get_filterset(self, request, queryset, view):
+        pass

@@ -24,7 +24,7 @@ SECRET_KEY = 'qa%_3oko$rwl&*#%t4h%6f18y306owoi6es8#+%8!1@1mt8-!5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -63,8 +63,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
-    # 'PAGE_SIZE': 10,
-    # 'DEFAULT_PAGINATION_CLASS': 'filters_tutorial_back.common.pagination.Pagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS': 'filters_tutorial_back.common.pagination.Pagination',
 }
 
 ROOT_URLCONF = 'filters_tutorial_back.urls'

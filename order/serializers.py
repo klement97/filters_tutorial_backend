@@ -7,7 +7,7 @@ from order.models import Order
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name']
+        fields = ['username', 'first_name', 'last_name']
 
 
 class OrderSerializer(ModelSerializer):

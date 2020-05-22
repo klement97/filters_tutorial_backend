@@ -14,7 +14,8 @@ class OrderFilter(filters.FilterSet):
 
     class Meta:
         model = Order
-        fields = ['id', 'deleted', 'username']
+        fields = ['id', 'deleted']
+        exclude = ['date_last_updated']
 
     @property
     def qs(self):
@@ -37,8 +38,8 @@ class OrderFilter(filters.FilterSet):
         @param self            OrderFilter instance
         @param queryset        Initial Queryset
         @param name            Field name
-        @param value           Filtered value
+        @param value           Filtering value
         """
         return queryset.filter(**{
-            name: value
+            name + '__icontains': value
             })
